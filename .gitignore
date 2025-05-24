@@ -1,0 +1,3 @@
+/config/*
+/bot_telegram/utils/.env
+/bot_telegram/utils/config.py
