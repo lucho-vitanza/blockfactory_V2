@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía del Proyecto Blockfactory</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    .etapa {
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: white;
+      overflow: hidden;
+    }
+    .etapa-header {
+      background: #2980b9;
+      color: white;
+      padding: 12px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .etapa-body {
+      display: none;
+      padding: 16px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .responsive {
+      max-width: 800px;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="responsive">
+    <h1>Guía del Proyecto Blockfactory</h1>
+
+    <div class="etapa">
+      <div class="etapa-header">🧱 ETAPA 1: FUNDACIÓN DEL SISTEMA</div>
+      <div class="etapa-body">
+        <h3>🔸 Gestión de Identidad y Autenticación</h3>
+        <ul>
+          <li>Registro con wallet (Web3)</li>
+          <li>Perfiles: Emprendedor / Servidor</li>
+          <li>Contrato básico de identidad (opcional)</li>
+        </ul>
+        <h3>🔸 Creación y Configuración de Proyectos</h3>
+        <ul>
+          <li>Input del producto y presupuesto</li>
+          <li>Almacenamiento en base de datos</li>
+          <li>Vista inicial del proyecto</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="etapa">
+      <div class="etapa-header">⚙️ ETAPA 2: INGENIERÍA DE PROCESOS</div>
+      <div class="etapa-body">
+        <h3>🔸 Generación de Hoja de Operaciones</h3>
+        <ul>
+          <li>Lista de materiales y operaciones</li>
+          <li>Secuencia de tareas</li>
+          <li>JSON estructurado</li>
+        </ul>
+        <h3>🔸 Conversión a Contratos Inteligentes</h3>
+        <ul>
+          <li>Despliegue en testnet</li>
+          <li>Lógica de contratos por operación</li>
+          <li>Vinculación con usuarios</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="etapa">
+      <div class="etapa-header">🚀 ETAPA 3: LANZAMIENTO Y EJECUCIÓN</div>
+      <div class="etapa-body">
+        <h3>🔸 Marketplace de Tareas y Matching</h3>
+        <ul>
+          <li>Publicación de tareas</li>
+          <li>Filtro por perfil y reputación</li>
+          <li>Adhesión de servidores</li>
+        </ul>
+        <h3>🔸 Ejecución Distribuida y Verificación</h3>
+        <ul>
+          <li>Evidencia de trabajo</li>
+          <li>Verificación en blockchain</li>
+          <li>Avance de estados</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="etapa">
+      <div class="etapa-header">💸 ETAPA 4: LIQUIDACIÓN Y REPUTACIÓN</div>
+      <div class="etapa-body">
+        <h3>🔸 Pago y Liquidación de Contratos</h3>
+        <ul>
+          <li>Confirmación de tareas</li>
+          <li>Transacciones tokenizadas</li>
+          <li>Estado final del contrato</li>
+        </ul>
+        <h3>🔸 Reputación y Feedback</h3>
+        <ul>
+          <li>Evaluaciones mutuas</li>
+          <li>Actualización reputacional</li>
+          <li>Badges o NFTs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.etapa-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const body = header.nextElementSibling;
+        body.style.display = body.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+  </script>
+
+
+
+  
+</body>
+</html>
+
+
+
+<!-- Mermaid.js para renderizar el diagrama -->
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true });
+</script>
+
+
+
+<!-- Diagrama de flujo de datos del main.py -->
+<div class="responsive">
+  <h2>📈 Diagrama de Flujo de Datos (main.py)</h2>
+  <pre class="mermaid">
+flowchart TD
+    Main[main.py] -->|llama| iniciar_sistema
+    iniciar_sistema -->|instancia| SistemaDeProyectos::Sistema
+    iniciar_sistema -->|llama| cargar_configuracion --> ConfigLoader::Config
+    iniciar_sistema -->|llama| inicializar_blockchain --> BlockchainManager::Web3Client
+    iniciar_sistema -->|llama| conectar_base_datos --> DBConnector::MongoClient
+    iniciar_sistema -->|llama| lanzar_servidor --> ServidorWeb::FlaskApp
+
+    SistemaDeProyectos::Sistema -->|usa| ProyectoFactory::crear_proyecto
+    ProyectoFactory::crear_proyecto -->|instancia| Proyecto
+    Proyecto -->|llama| generar_hoja_operaciones --> HojaOperaciones::Generador
+    Proyecto -->|llama| lanzar_contratos --> SmartContract::DeployManager
+
+    ServidorWeb::FlaskApp -->|exponer| API::/proyecto/nuevo
+    API::/proyecto/nuevo -->|invoca| SistemaDeProyectos::Sistema::nuevo_proyecto
+    API::/servidor/tarea -->|invoca| TareaManager::asignar_tarea
+  </pre>
+</div>
+
+
+
